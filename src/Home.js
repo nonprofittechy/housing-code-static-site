@@ -36,16 +36,16 @@ const Home = () => {
 		{
 			categories.map((categoryName, index) => {
 				if(windowWidth < 400) {
-					return <CategoryButton key={index} categoryName={categoryName}/>
+					return <CategoryButton key={index} name={categoryName}/>
 				}
 				if(index % 2 === 0) {
-					return <div className="row">
+					return <div key={index} className="row">
 						<div className="column">
-							<CategoryButton key={index} categoryName={categoryName}/>
+							<CategoryButton name={categoryName}/>
 						</div>
 						<div className="column">
 							{index + 1 < categories.length ?
-								<CategoryButton key={index + 1} categoryName={categories[index + 1]}/>
+								<CategoryButton name={categories[index + 1]}/>
 								: null}
 						</div>
 					</div>

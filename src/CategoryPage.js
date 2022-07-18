@@ -14,7 +14,6 @@ const CategoryPage = () => {
 
 	useEffect(() => {
 		if(checklist) {
-			console.log("In category page, checklist", checklist);
 			let data = [...checklist];
 			data.shift(); // remove row with names of columns
 			const desc = [];
@@ -22,7 +21,6 @@ const CategoryPage = () => {
 			data.forEach((row, idx) => {
 				if(row[2] === params.categoryName) {
 					relevant.push(idx + 1); // bc removed the first row
-					console.log(row)
 					desc.push(row[4]);
 				}
 			});

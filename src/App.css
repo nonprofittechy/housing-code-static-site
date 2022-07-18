@@ -1,0 +1,115 @@
+.App {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  padding-right: 15%;
+  padding-left: 15%;
+  margin: 0 auto;
+}
+
+.separator {
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+div {
+  color: #6C757D;
+}
+
+h1, h2, h3 {
+  color: black;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.normal {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+}
+
+.my-link a:hover, a:active, a:link, a:visited {
+  text-decoration: none;
+}
+
+call-to-action-link a:hover, a:active, a:link, a:visited {
+  color: white;
+}
+
+.row {
+  display: flex;
+  flex: 1;
+  margin: 0 auto;
+  max-width: 700px;
+
+}
+
+.column {
+  flex: 50%;
+  margin-right: 20px;
+}
+
+.category-button {
+  font-size: 17px;
+  text-align: left;
+  padding: 10px 20px 10px 10px;
+  transform: translateX(-20px);
+  background-color: #EEEEEE;
+  border: 0px solid transparent;
+  margin: 5px auto;
+  width: 90%;
+  color: black;
+  display: inline-block;
+}
+
+.category-button:hover {
+  cursor: pointer;
+  background-color: #F0F0F0;
+
+}
+
+.category-button::after {
+  content: "<";
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 5px;
+}
+
+.back-button {
+  font-size: 17px;
+  text-align: left;
+  padding: 10px;
+  background-color: #EEEEEE;
+  border: 0px solid transparent;
+  margin: 5px;
+  color: black;
+  display:  inline-block;
+}
+
+.icon {
+  transform-origin: left top;
+  transform: scale(.3);
+  display: inline;
+}
+
+
+
+.section {
+  background-color: #F5F9FE;
+  padding: 20px 0;
+  width: 100vw;
+  margin: 20px 0 20px calc(50% - 50vw);
+
+}
+
+.call-to-action-button {
+  background-color: #1A73E8;
+  border-radius: 6px 6px 6px 6px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  padding: 12px 24px;
+}
+
+.call-to-action-button:hover {
+  cursor: pointer;
+}

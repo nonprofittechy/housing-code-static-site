@@ -1,3 +1,8 @@
+:root {
+  --blue: #1A73E8;
+  --lightblue: #F5F9FE;
+}
+
 .App {
   text-align: center;
   font-family: "Roboto", sans-serif;
@@ -20,16 +25,21 @@ h1, h2, h3 {
   font-family: 'Quicksand', sans-serif;
 }
 
-.normal {
+.normal .link {
   font-family: "Roboto", sans-serif;
   font-size: 20px;
+  color: black;
 }
 
-.my-link a:hover, a:active, a:link, a:visited {
+.link {
+  color: var(--blue);
+}
+
+.link-no-decoration .link-no-decoration:hover, .link-no-decoration:active, .link-no-decoration:link, .link-no-decoration:visited {
   text-decoration: none;
 }
 
-call-to-action-link a:hover, a:active, a:link, a:visited {
+.call-to-action-link, .call-to-action-link:hover, .call-to-action-link:active, .call-to-action-link:link, .call-to-action-link:visited {
   color: white;
 }
 
@@ -93,7 +103,7 @@ call-to-action-link a:hover, a:active, a:link, a:visited {
 
 
 .section {
-  background-color: #F5F9FE;
+  background-color: var(--lightblue);
   padding: 20px 0;
   width: 100vw;
   margin: 20px 0 20px calc(50% - 50vw);
@@ -101,7 +111,7 @@ call-to-action-link a:hover, a:active, a:link, a:visited {
 }
 
 .call-to-action-button {
-  background-color: #1A73E8;
+  background-color: var(--blue);
   border-radius: 6px 6px 6px 6px;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
@@ -112,4 +122,13 @@ call-to-action-link a:hover, a:active, a:link, a:visited {
 
 .call-to-action-button:hover {
   cursor: pointer;
+}
+
+.info-box {
+  background-color: var(--lightblue);
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

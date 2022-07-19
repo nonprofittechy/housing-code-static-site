@@ -1,5 +1,3 @@
-import * as Papa from "papaparse";
-import {Link} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {ChecklistContext} from "./App";
 import CallToAction from "./components/CallToAction";
@@ -52,6 +50,19 @@ const Home = () => {
 				}
 			})
 		}
+		<br/>
+		<div className={'info-box'}>
+			<h2>What is the state sanitary code?</h2>
+			<div className={"normal"} style={{textAlign:"left"}}>
+				The state sanitary code lists the minimum standards that your landlord has to follow to offer a home
+				for rent in Massachusetts. This web page lists all of the rules in one place so that you can easily
+				find if your home complies with state law. The mass.gov website has more info <a href={"https://www.mass.gov/regulations/105-CMR-41000-minimum-standards-of-fitness-for-human-habitation-state-sanitary-code-chapter-ii"}>
+				here
+			</a>.
+			</div>
+
+
+		</div>
 	</div>
 
 };

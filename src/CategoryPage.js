@@ -31,7 +31,15 @@ const CategoryPage = () => {
 
 	return <div>
 		<BackButton/>
-		<h2>Problems with {params.categoryName}</h2>
+		<div className={"section"}>
+			<h2>
+				Are you having problems with {params.categoryName.toLowerCase()} in your Massachusetts apartment?
+			</h2>
+			<h3>
+				Read below to find out what responsibilities your landlord has to keep your home habitable according to the housing code
+			</h3>
+		</div>
+
 		{descriptions.map((description, index) => {
 			const isEven = index % 2 === 0;
 				return <div key={index} className={'section'} style={{backgroundColor: isEven ? '#EEEEEE' : "white"}}>

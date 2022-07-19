@@ -4,7 +4,7 @@ const BackButton = () => {
 	return <div style={{textAlign: 'left'}}>
 		<Link to={"/"}>
 			<div className={'back-button'}>
-				{'<'} Back to List
+				{'<'} View more of the Massachusetts state sanitary code
 			</div>
 		</Link>
 	</div>;

@@ -59,14 +59,18 @@ h1, h2, h3 {
 .category-button {
   font-size: 17px;
   text-align: left;
-  padding: 10px 20px 10px 10px;
-  transform: translateX(-20px);
+  height: 50%;
+  padding: 5% 10% 5% 5%;
+  /*transform: translateX(-10%);*/
   background-color: #EEEEEE;
   border: 0px solid transparent;
-  margin: 5px auto;
+  margin: 5% auto;
   width: 90%;
   color: black;
-  display: inline-block;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+
 }
 
 .category-button:hover {
@@ -77,10 +81,6 @@ h1, h2, h3 {
 
 .category-button::after {
   content: ">";
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  right: 5px;
 }
 
 .back-button {

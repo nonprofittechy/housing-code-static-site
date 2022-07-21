@@ -22,14 +22,14 @@ const CategoryButton = (props) => {
 		"Porch and balcony": "fa-store"
 	}
 
-	return <div {...props}>
-		<Link to={"/category/" + props.name}>
-				<span className={'category-button'}>
+	return <div className={'category-button'} {...props}>
+		{/*<Link to={"/category/" + props.name}>*/}
+				<div >
 					{/*<div style={{marginRight: '10px'}}>*/}
 					<i className={"fa " + iconAssignments[props.name]} aria-hidden="true">&nbsp;</i>
 					{props.name}
-				</span>
-		</Link>
+				</div>
+		{/*</Link>*/}
 	</div>;
 };
 

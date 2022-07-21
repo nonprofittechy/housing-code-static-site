@@ -1,6 +1,5 @@
 import './App.css';
-import { Routes, Route, Link} from "react-router-dom";
-import {useLocation} from "react-router";
+import { Routes, Route, Link, useLocation} from "react-router-dom";
 import CategoryPage from "./CategoryPage";
 import Home from "./Home";
 import {useState, createContext, useEffect, Fragment} from 'react';
@@ -11,10 +10,14 @@ import UpToCodeLogo from "./components/UpToCodeLogo";
 
 export const ChecklistContext = createContext([[], () => {}]);
 export const LanguageCodeContext = createContext("en");
+export const WindowWidthContext = createContext(window.innerWidth);
+
 
 function App() {
     const [checklist, setChecklist] = useState(housingChecklistJSON.data);
     const [languageCode, setLanguageCode] = useState("en");
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
     let location = useLocation();
 
     /**
@@ -30,17 +33,27 @@ function App() {
             setLanguageCode("en");
         }
 
-    }, [location])
+    }, [location]);
+
+    window.addEventListener("resize", () => {
+        setWindowWidth(window.innerWidth);
+    });
+
+    const headerContents = [<UpToCodeLogo/>,
+        <Link className='link-no-decoration' to={languageCode === "en" ? "/" : "/" + languageCode + "/"}>
+            <h1>{translations[languageCode]["Massachusetts State Sanitary Code"]}</h1>
+        </Link>];
 
     return (
+        <WindowWidthContext.Provider value={[windowWidth, setWindowWidth]}>
         <LanguageCodeContext.Provider value={[languageCode, setLanguageCode]} >
         <ChecklistContext.Provider value={[checklist, setChecklist]} >
             <div className="App">
                 <div id={'header'}>
-                    <div style={{display: "flex", flexDirection: "row"}}>
-                       <UpToCodeLogo/>
+                    <div style={{display: "flex", flexDirection:(windowWidth < 800)? "column" : "row", alignContent: "center", justifyContent: "center"}}>
+                        <UpToCodeLogo/>
                         <Link className='link-no-decoration' to={languageCode === "en" ? "/" : "/" + languageCode + "/"}>
-                            <h1>UpToCode: {translations[languageCode]["Massachusetts State Sanitary Code"]}</h1>
+                            <h1>{translations[languageCode]["Massachusetts State Sanitary Code"]}</h1>
                         </Link>
                     </div>
                     <br/>
@@ -68,6 +81,7 @@ function App() {
             </div>
         </ChecklistContext.Provider>
         </LanguageCodeContext.Provider>
+        </WindowWidthContext.Provider>
     );
 }
 

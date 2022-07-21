@@ -1,9 +1,7 @@
 const UpToCodeLogo = props => {
-	return  <a className={'link'} style={{padding: "20px"}} href={"https://madeuptocode.org"}>
-		<div>
-			<img src={process.env.PUBLIC_URL + "/logoWithText.svg"} width={200}/>
-		</div>
-		madeuptocode.org
+	return  <a className={'link'} style={{paddingTop: "20px", paddingRight: "20px"}} href={"https://madeuptocode.org"}>
+		<img src={process.env.PUBLIC_URL + "/logoWithText.svg"} width={200}/>
+
 	</a>
 }
 

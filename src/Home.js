@@ -1,18 +1,13 @@
 import {useContext, useEffect, useState} from "react";
-import {ChecklistContext, LanguageCodeContext} from "./App";
+import {ChecklistContext, LanguageCodeContext, WindowWidthContext} from "./App";
 import CallToAction from "./components/CallToAction";
 import CategoryButton from "./components/CategoryButton";
 import translations from "./translations.json";
 const Home = () => {
 	const [checklist, setChecklist] = useContext(ChecklistContext);
 	const [languageCode, setLanguageCode] = useContext(LanguageCodeContext);
+	const [windowWidth, setWindowWidth] = useContext(WindowWidthContext);
 	const [categories, setCategories] = useState([]);
-	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-
-	window.addEventListener("resize", () => {
-		setWindowWidth(window.innerWidth);
-	});
 
 	useEffect(() => {
 		if (checklist) {

@@ -52,9 +52,17 @@ const CategoryPage = () => {
 				return <div key={index} className={'section'} style={{backgroundColor: isEven ? '#EEEEEE' : "white"}}>
 					<div style={{width: '70%', margin: '0 auto'}}>
 						<h3>{description}</h3>
-						<div style={{textAlign: 'left'}}>{checklist[relevantChecklistIndices[index]][translations[languageCode]["helpColumn"]]}</div>
-						<div>&nbsp;</div>
-						<div>Housing Code: {checklist[relevantChecklistIndices[index]][8]}</div>
+						<div style={{textAlign: 'left'}}>
+							{checklist[relevantChecklistIndices[index]][translations[languageCode]["helpColumn"]]}</div>
+						<br/>
+						<div>
+							{
+								checklist[relevantChecklistIndices[index]][1].indexOf("24") !== -1 ?
+									<mark>Fix deadline: {checklist[relevantChecklistIndices[index]][1]}</mark>
+									:<span>Fix deadline: {checklist[relevantChecklistIndices[index]][1]}</span>
+							}.
+						</div>
+						<div>C.M.R. {checklist[relevantChecklistIndices[index]][8]}</div>
 					</div>
 				</div>;
 		})}

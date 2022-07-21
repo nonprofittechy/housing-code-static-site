@@ -58,10 +58,8 @@ h1, h2, h3 {
 
 .category-button {
   font-size: 17px;
-  text-align: left;
   height: 50%;
   padding: 5% 10% 5% 5%;
-  /*transform: translateX(-10%);*/
   background-color: #EEEEEE;
   border: 0px solid transparent;
   margin: 5% auto;
@@ -70,6 +68,7 @@ h1, h2, h3 {
   display: flex;
   flex: 1;
   justify-content: space-between;
+  text-align: left;
 
 }
 

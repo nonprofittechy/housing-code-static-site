@@ -1,35 +1,17 @@
 import {Link} from "react-router-dom";
+import iconAssignments from "../iconAssignments.json";
 
 const CategoryButton = (props) => {
 
-	const iconAssignments = {
-		"General Maintenance": "fa-screwdriver-wrench",
-		"Bathroom": "fa-bath",
-		"Kitchen": "fa-utensils",
-		"Bedroom": "fa-bed",
-		"Living area": "fa-couch",
-		"Building Structure": "fa-helmet-safety",
-		"Safety": "fa-unlock-keyhole",
-		"Water": "fa-faucet",
-		"Exits": "fa-door-open",
-		"Heat": "fa-temperature-full",
-		"Garbage": "fa-trash-can",
-		"Rodents and insects": "fa-bug",
-		"Electricity and Gas": "fa-plug",
-		"Lighting": "fa-lightbulb",
-		"Ventilation and Light": "fa-sun",
-		"Lead paint": "fa-paint-roller",
-		"Porch and balcony": "fa-store"
-	}
 
-	return <div className={'category-button'} {...props}>
-		<Link to={"/category/" + props.name}>
-				<div >
+	return <Link to={"/category/" + props.name} className={"link-no-decoration"} {...props}>
+				<div className={'category-button'} >
+					<span>
 					<i className={"fa " + iconAssignments[props.name]} aria-hidden="true">&nbsp;</i>
-					{props.name}
+						{props.name}
+					</span>
 				</div>
-		</Link>
-	</div>;
+		</Link>;
 };
 
 export default CategoryButton;

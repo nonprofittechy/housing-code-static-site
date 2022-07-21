@@ -4,6 +4,7 @@ import {useContext, useEffect, useState} from 'react';
 import BackButton from "./components/BackButton";
 import CallToAction from "./components/CallToAction";
 import translations from "./translations.json";
+import iconAssignments from "./iconAssignments.json";
 
 const CategoryPage = () => {
 	let params = useParams();
@@ -34,8 +35,12 @@ const CategoryPage = () => {
 	return <div>
 		<BackButton/>
 		<div className={"section"}>
+			<h1>
+				<i className={"fa " + iconAssignments[params.categoryName]} aria-hidden="true">&nbsp;</i>
+				{params.categoryName}
+			</h1>
 			<h2>
-				Are you having problems with {params.categoryName.toLowerCase()} in your Massachusetts apartment?
+				Are you having problems in your Massachusetts apartment?
 			</h2>
 			<h3>
 				Read below to find out what responsibilities your landlord has to keep your home habitable according to the housing code

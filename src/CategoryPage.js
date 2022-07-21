@@ -1,12 +1,14 @@
 import {useParams} from "react-router-dom";
-import {ChecklistContext} from "./App";
+import {ChecklistContext, LanguageCodeContext} from "./App";
 import {useContext, useEffect, useState} from 'react';
 import BackButton from "./components/BackButton";
 import CallToAction from "./components/CallToAction";
+import translations from "./translations.json";
 
 const CategoryPage = () => {
 	let params = useParams();
 	const [checklist, setChecklist] = useContext(ChecklistContext);
+	const [languageCode, setLanguageCode] = useContext(LanguageCodeContext);
 	const [descriptions, setDescriptions] = useState([]);
 	const [relevantChecklistIndices, setRelevantChecklistIndices] = useState([]);
 
@@ -20,13 +22,13 @@ const CategoryPage = () => {
 			data.forEach((row, idx) => {
 				if(row[2] === params.categoryName) {
 					relevant.push(idx + 1); // bc removed the first row
-					desc.push(row[4]);
+					desc.push(row[translations[languageCode]["descriptionColumn"]]);
 				}
 			});
 			setRelevantChecklistIndices(relevant);
 			setDescriptions(desc);
 		}
-	}, [checklist])
+	}, [checklist, languageCode])
 
 
 	return <div>
@@ -45,7 +47,7 @@ const CategoryPage = () => {
 				return <div key={index} className={'section'} style={{backgroundColor: isEven ? '#EEEEEE' : "white"}}>
 					<div style={{width: '70%', margin: '0 auto'}}>
 						<h3>{description}</h3>
-						<div style={{textAlign: 'left'}}>{checklist[relevantChecklistIndices[index]][6]}</div>
+						<div style={{textAlign: 'left'}}>{checklist[relevantChecklistIndices[index]][translations[languageCode]["helpColumn"]]}</div>
 						<div>&nbsp;</div>
 						<div>Housing Code: {checklist[relevantChecklistIndices[index]][8]}</div>
 					</div>

@@ -1,12 +1,14 @@
 import {useContext, useEffect, useState} from "react";
-import {ChecklistContext} from "./App";
+import {ChecklistContext, LanguageCodeContext} from "./App";
 import CallToAction from "./components/CallToAction";
 import CategoryButton from "./components/CategoryButton";
-
+import translations from "./translations.json";
 const Home = () => {
 	const [checklist, setChecklist] = useContext(ChecklistContext);
+	const [languageCode, setLanguageCode] = useContext(LanguageCodeContext);
 	const [categories, setCategories] = useState([]);
 	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
 
 	window.addEventListener("resize", () => {
 		setWindowWidth(window.innerWidth);
@@ -16,6 +18,7 @@ const Home = () => {
 		if (checklist) {
 			// get the names of each category
 			let data = [...checklist];
+			console.log(data);
 			data.shift(); // remove row with names of columns
 			const cats = {};
 			data.forEach((row) => {
@@ -30,7 +33,7 @@ const Home = () => {
 
 	return <div>
 		<CallToAction/>
-		<h2 id={'responsibilities'}>Read about your landlord's responsibilities:</h2>
+		<h2 id={'responsibilities'}>{translations[languageCode]["Read about your landlord's responsibilities"]}:</h2>
 		{
 			categories.map((categoryName, index) => {
 				if(windowWidth < 400) {
@@ -52,12 +55,13 @@ const Home = () => {
 		}
 		<br/>
 		<div className={'info-box'}>
-			<h2>What is the state sanitary code?</h2>
+			<h2>{translations[languageCode]["What is the state sanitary code?"]}</h2>
 			<div className={"normal"} style={{textAlign:"left"}}>
-				The state sanitary code lists the minimum standards that your landlord has to follow to offer a home
-				for rent in Massachusetts. This web page lists all of the rules in one place so that you can easily
-				find if your home complies with state law. The mass.gov website has more info <a href={"https://www.mass.gov/regulations/105-CMR-41000-minimum-standards-of-fitness-for-human-habitation-state-sanitary-code-chapter-ii"}>
-				here
+				{
+					translations[languageCode]["The state sanitary code lists the minimum standards that your landlord has to follow to offer a home for rent in Massachusetts. This web page lists all of the rules in one place so that you can easily find if your home complies with state law. The mass.gov website has more info"]
+				}
+				 <a href={"https://www.mass.gov/regulations/105-CMR-41000-minimum-standards-of-fitness-for-human-habitation-state-sanitary-code-chapter-ii"}>
+					 {translations[languageCode]["here"]}
 			</a>.
 			</div>
 

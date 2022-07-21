@@ -50,13 +50,18 @@ function App() {
         <ChecklistContext.Provider value={[checklist, setChecklist]} >
             <div className="App">
                 <div id={'header'}>
-                    <div style={{display: "flex", flexDirection:(windowWidth < 800)? "column" : "row", alignContent: "center", justifyContent: "center"}}>
+                    <div style={{display: "flex", flexDirection:(windowWidth < 800)? "column" : "row"}}>
                         <UpToCodeLogo/>
-                        <Link className='link-no-decoration' to={languageCode === "en" ? "/" : "/" + languageCode + "/"}>
-                            <h1>{translations[languageCode]["Massachusetts State Sanitary Code"]}</h1>
-                        </Link>
+                        <div style={{display: "flex", flexDirection:(windowWidth < 300)? "column" : "row"}}>
+                            <h3 className={'header-link'}>Home</h3>
+                            <h3 className={'header-link'}>FAQ</h3>
+                            <Link className='link-no-decoration' to={languageCode === "en" ? "/" : "/" + languageCode + "/"} >
+                                <h3 className={'header-link header-link-current'} >Read the code</h3>
+                            </Link>
+                            <h3 className={'header-link'}>Find my inspector</h3>
+                        </div>
                     </div>
-                    <br/>
+                    {/*<br/>*/}
                     <div className={'separator'}/>
                 </div>
                 <Routes>

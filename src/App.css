@@ -25,6 +25,15 @@ h1, h2, h3 {
   font-family: 'Quicksand', sans-serif;
 }
 
+.header-link {
+  padding: 0px 5px 0px 5px;
+
+}
+
+.header-link-current {
+  color: var(--blue);
+}
+
 .normal .link {
   font-family: "Roboto", sans-serif;
   font-size: 20px;

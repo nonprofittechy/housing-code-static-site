@@ -52,13 +52,19 @@ function App() {
                 <div id={'header'}>
                     <div style={{display: "flex", flexDirection:(windowWidth < 800)? "column" : "row"}}>
                         <UpToCodeLogo/>
-                        <div style={{display: "flex", flexDirection:(windowWidth < 300)? "column" : "row"}}>
-                            <h3 className={'header-link'}>Home</h3>
-                            <h3 className={'header-link'}>FAQ</h3>
-                            <Link className='link-no-decoration' to={languageCode === "en" ? "/" : "/" + languageCode + "/"} >
-                                <h3 className={'header-link header-link-current'} >Read the code</h3>
+                        <div style={{display: "flex", flexDirection:(windowWidth < 300)? "column" : "row", flex: 1, justifyContent: "space-between"}}>
+                            <div style={{display: "flex", flexDirection:(windowWidth < 300)? "column" : "row"}}>
+                                <h3 className={'header-link'}>Home</h3>
+                                <h3 className={'header-link'}>FAQ</h3>
+                                <Link className='link-no-decoration' to={languageCode === "en" ? "/" : "/" + languageCode + "/"} >
+                                    <h3 className={'header-link header-link-current'} >Read the code</h3>
+                                </Link>
+                                <h3 className={'header-link'}>Find my inspector</h3>
+                            </div>
+
+                            <Link className='link-no-decoration' to={languageCode === "en" ? "/es/" : "/"} >
+                                <h3 className={'header-link'}>{languageCode === "en" ? "español" : "English"}</h3>
                             </Link>
-                            <h3 className={'header-link'}>Find my inspector</h3>
                         </div>
                     </div>
                     {/*<br/>*/}

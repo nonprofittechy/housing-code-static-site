@@ -129,7 +129,7 @@ h1, h2, h3 {
 .info-box {
   background-color: var(--lightblue);
   width: 50%;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 10px 15px;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

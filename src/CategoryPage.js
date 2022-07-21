@@ -5,6 +5,7 @@ import ShowMoreButton from "./components/ShowMoreButton";
 import CallToAction from "./components/CallToAction";
 import translations from "./translations.json";
 import iconAssignments from "./iconAssignments.json";
+import InfoBox from "./components/InfoBox";
 
 const CategoryPage = () => {
 	let params = useParams();
@@ -67,6 +68,7 @@ const CategoryPage = () => {
 				</div>;
 		})}
 		<CallToAction/>
+		<InfoBox/>
 		<ShowMoreButton/>
 		</div>
 };

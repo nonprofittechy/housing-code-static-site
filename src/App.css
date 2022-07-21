@@ -91,15 +91,22 @@ h1, h2, h3 {
   content: ">";
 }
 
-.back-button {
+.button {
   font-size: 17px;
   text-align: left;
   padding: 10px;
-  background-color: #EEEEEE;
-  border: 0px solid transparent;
+  background-color: var(--blue);
+  border: 0 solid transparent;
   margin: 5px;
-  color: black;
+  color: white;
   display:  inline-block;
+  border-radius: 6px 6px 6px 6px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+.button:hover {
+  cursor: pointer;
 }
 
 .icon {
@@ -118,19 +125,6 @@ h1, h2, h3 {
 
 }
 
-.call-to-action-button {
-  background-color: var(--blue);
-  border-radius: 6px 6px 6px 6px;
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: white;
-  padding: 12px 24px;
-}
-
-.call-to-action-button:hover {
-  cursor: pointer;
-}
 
 .info-box {
   background-color: var(--lightblue);

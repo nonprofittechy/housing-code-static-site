@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import {ChecklistContext, LanguageCodeContext} from "./App";
 import {useContext, useEffect, useState} from 'react';
-import BackButton from "./components/BackButton";
+import ShowMoreButton from "./components/ShowMoreButton";
 import CallToAction from "./components/CallToAction";
 import translations from "./translations.json";
 import iconAssignments from "./iconAssignments.json";
@@ -33,7 +33,7 @@ const CategoryPage = () => {
 
 
 	return <div>
-		<BackButton/>
+		<ShowMoreButton/>
 		<div className={"section"}>
 			<h1>
 				<i className={"fa " + iconAssignments[params.categoryName]} aria-hidden="true">&nbsp;</i>
@@ -67,8 +67,8 @@ const CategoryPage = () => {
 				</div>;
 		})}
 		<CallToAction/>
-		<BackButton/>
+		<ShowMoreButton/>
 		</div>
-}
+};
 
 export default CategoryPage

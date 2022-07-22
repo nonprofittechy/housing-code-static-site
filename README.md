@@ -1,5 +1,5 @@
 # Massachusetts State Sanitary Code
-This site contains information for tenants about the responsibilities of their landlord and provides links to helpful tools. 
+This site contains information for tenants about the responsibilities of their landlord and provides links to helpful tools. Demo: [https://housing-code.web.app](https://housing-code.web.app)
 
 # to run
 `yarn start` or `npm start`

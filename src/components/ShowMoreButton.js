@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import {LanguageCodeContext} from "../App";
 import {useContext} from "react";
+import translations from "../translations.json"
 
 const ShowMoreButton = () => {
 	const [languageCode, setLanguageCode] = useContext(LanguageCodeContext);
@@ -8,7 +9,7 @@ const ShowMoreButton = () => {
 	return <div style={{textAlign: 'left'}}>
 		<Link to={languageCode === "en" ? "/" : "/" + languageCode + "/"}>
 			<div className={'button'}>
-				View more of the Massachusetts state sanitary code
+				{translations[languageCode]["View more of the Massachusetts state sanitary code"]}
 			</div>
 		</Link>
 	</div>;

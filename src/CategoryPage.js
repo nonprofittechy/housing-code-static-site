@@ -38,13 +38,13 @@ const CategoryPage = () => {
 		<div className={"section"}>
 			<h1>
 				<i className={"fa " + iconAssignments[params.categoryName]} aria-hidden="true">&nbsp;</i>
-				{params.categoryName}
+				{translations[languageCode][params.categoryName]}
 			</h1>
 			<h2>
-				Are you having problems in your Massachusetts apartment?
+				{translations[languageCode]["Are you having problems in your Massachusetts apartment?"]}
 			</h2>
 			<h3>
-				Read below to find out what responsibilities your landlord has to keep your home habitable according to the housing code
+				{translations[languageCode]["Read below to find out what responsibilities your landlord has to keep your home habitable according to the housing code"]}
 			</h3>
 		</div>
 

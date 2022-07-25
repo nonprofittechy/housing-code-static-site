@@ -61,13 +61,11 @@ function App() {
                                 </Link>
                                 <h3 className={'header-link'}>Find my inspector</h3>
                             </div>
-
                             <Link className='link-no-decoration' to={languageCode === "en" ? "/es/" : "/"} >
                                 <h3 className={'header-link'}>{languageCode === "en" ? "español" : "English"}</h3>
                             </Link>
                         </div>
                     </div>
-                    {/*<br/>*/}
                     <div className={'separator'}/>
                 </div>
                 <Routes>

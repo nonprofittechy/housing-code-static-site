@@ -3,6 +3,24 @@
   --lightblue: #F5F9FE;
 }
 
+#root {
+  margin-top: 0;
+  padding: 0;
+}
+
+.topnav {
+  top: 0;
+  width: 100%;
+  background-color: var(--blue);
+  margin: 0;
+}
+
+#language-container {
+  color: white;
+  justify-content: space-between;
+  line-height: 1.5em;
+}
+
 .App {
   text-align: center;
   font-family: "Roboto", sans-serif;
@@ -44,8 +62,12 @@ h1, h2, h3 {
   color: var(--blue);
 }
 
-.link-no-decoration .link-no-decoration:hover, .link-no-decoration:active, .link-no-decoration:link, .link-no-decoration:visited {
+.link-no-decoration, .link-no-decoration:active, .link-no-decoration:link, .link-no-decoration:visited {
   text-decoration: none;
+}
+
+.link-no-decoration:hover {
+  text-decoration: underline;
 }
 
 .call-to-action-link, .call-to-action-link:hover, .call-to-action-link:active, .call-to-action-link:link, .call-to-action-link:visited {

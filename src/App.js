@@ -51,7 +51,7 @@ function App() {
             <div class="topnav">
                 <div id='language-container'>
                     <Link className='link-no-decoration' to={languageCode === "en" ? "/es/" : "/"} >
-                                    <h3 className={'header-link'}>{languageCode === "en" ? "español" : "English"}</h3>
+                        <span class="language-link">{languageCode === "en" ? "español" : "English"}</span>
                     </Link>                    
                 </div>
             </div>

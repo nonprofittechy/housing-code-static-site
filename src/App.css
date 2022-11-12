@@ -44,8 +44,8 @@ h1, h2, h3 {
 }
 
 .header-link {
+  margin-top: 0;
   padding: 0px 5px 0px 5px;
-
 }
 
 .header-link-current {

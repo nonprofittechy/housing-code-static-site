@@ -1,32 +1,48 @@
 :root {
   --blue: #1A73E8;
   --lightblue: #F5F9FE;
+  --lightest: white;
 }
 
 #root {
   margin-top: 0;
   padding: 0;
+  font-size: 1.15rem;
 }
 
 .topnav {
   top: 0;
   width: 100%;
-  background-color: var(--blue);
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   margin: 0;
-  padding: .6em;
-  text-align: right;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--blue);
+  font-family: "Roboto", Sans-serif;
+  font-weight: 600;
+  font-size: 0.8em;
 }
 
 #language-container {
-  color: white;
+  padding: .7rem 1rem;
+  display: flex;
   justify-content: space-between;
   line-height: 1.5em;
 }
 
 .language-link {
-  color: white;
+  padding: .5rem;
   font-weight: 600;
-  padding-right: 10px;
+  color: var(--lightest);
+}
+
+@media (max-width: 767px) {
+  .topnav {
+    justify-content: center;
+  }
 }
 
 .App {

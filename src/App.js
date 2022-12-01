@@ -39,10 +39,13 @@ function App() {
         setWindowWidth(window.innerWidth);
     });
 
-    const headerContents = [<UpToCodeLogo/>,
+    // Is this still used?
+    const headerContents = [
+        <UpToCodeLogo/>,
         <Link className='link-no-decoration' to={languageCode === "en" ? "/" : "/" + languageCode + "/"}>
             <h1>{translations[languageCode]["Massachusetts State Sanitary Code"]}</h1>
-        </Link>];
+        </Link>
+    ];
 
     return (
         <WindowWidthContext.Provider value={[windowWidth, setWindowWidth]}>
@@ -56,43 +59,48 @@ function App() {
                 </div>
             </div>
             <div className="App">
-                <div id={'header'}>
-                    <div style={{display: "flex", flexDirection:(windowWidth < 800)? "column" : "row"}}>
-                        <UpToCodeLogo/>
-                        <div style={{display: "flex", flexDirection:(windowWidth < 300)? "column" : "row", flex: 1, justifyContent: "space-between"}}>
-                            <div style={{display: "flex", flexDirection:(windowWidth < 300)? "column" : "row"}}>
-                                <a class='link-no-decoration' href="https://madeuptocode.org/about/">
-                                    <h3 className={'header-link'}>About</h3>
-                                </a>
-                                <a class='link-no-decoration' href="https://madeuptocode.org/faqs/">
-                                    <h3 className={'header-link'}>FAQs</h3>
-                                </a>
-                                <a class='link-no-decoration' href="https://madeuptocode.org/find-your-inspector/">
-                                    <h3 className={'header-link'}>Find Your Inspector</h3>
-                                </a>
-                                <a class='link-no-decoration' href={languageCode === "en" ? "/" : "/" + languageCode + "/"} >
-                                    <h3 className={'header-link header-link-current'} >Read the Code</h3>
-                                </a>
-                            </div>
-
+                <section id='header_section'>
+                    <div id='header' style={{display: "flex", flexDirection:(windowWidth < 800)? "column" : "row"}}>
+                        <div className='header-part logo'>
+                            <UpToCodeLogo/>
+                        </div>
+                        <div className='header-part header-links'>
+                            <nav className='nav' style={{display: "flex", flexDirection:(windowWidth < 300)? "column" : "row", flex: 1, justifyContent: "space-between"}}>
+                                <div style={{display: "flex", flexDirection:(windowWidth < 300)? "column" : "row"}}>
+                                    <a class='header-link link-no-decoration' href="https://madeuptocode.org/about/">
+                                        <h3 className={'header-link-text'}>About</h3>
+                                    </a>
+                                    <a class='header-link link-no-decoration' href="https://madeuptocode.org/faqs/">
+                                        <h3 className={'header-link-text'}>FAQs</h3>
+                                    </a>
+                                    <a class='header-link link-no-decoration' href="https://madeuptocode.org/find-your-inspector/">
+                                        <h3 className={'header-link-text'}>Find Your Inspector</h3>
+                                    </a>
+                                    <a class='header-link link-no-decoration' href={languageCode === "en" ? "/" : "/" + languageCode + "/"} >
+                                        <h3 className={'header-link-text header-link-text-current'} >Read the Code</h3>
+                                    </a>
+                                </div>
+                            </nav>
                         </div>
                     </div>
-                    <div className={'separator'}/>
-                </div>
-                <Routes>
-                    {Object.keys(translations).map((langCode) => {
-                        let pathLangCode = langCode + "/";
-                        if (langCode === "en") {
-                            pathLangCode = "";
-                        }
-                        console.log(pathLangCode)
-                        return (<Fragment key={"/" + pathLangCode}>
-                                <Route path={"/" + pathLangCode} element={<Home />} />
-                                <Route path={"/" + pathLangCode + "category/:categoryName"} element={<CategoryPage/>}/>
-                            </Fragment>
-                        );
-                    })}
-                </Routes>
+                </section>
+                <section><div className={'separator'}/></section>
+                <section>
+                    <Routes>
+                        {Object.keys(translations).map((langCode) => {
+                            let pathLangCode = langCode + "/";
+                            if (langCode === "en") {
+                                pathLangCode = "";
+                            }
+                            console.log(pathLangCode)
+                            return (<Fragment key={"/" + pathLangCode}>
+                                    <Route path={"/" + pathLangCode} element={<Home/>} />
+                                    <Route path={"/" + pathLangCode + "category/:categoryName"} element={<CategoryPage/>}/>
+                                </Fragment>
+                            );
+                        })}
+                    </Routes>
+                </section>
                 <div id={'footer'}>
                     <br/>
                     <div className={'separator'}/>

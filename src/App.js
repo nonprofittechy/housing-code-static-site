@@ -17,6 +17,7 @@ function App() {
     const [checklist, setChecklist] = useState(housingChecklistJSON.data);
     const [languageCode, setLanguageCode] = useState("en");
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [navbarOpen, setNavbarOpen] = useState(false);
 
     let location = useLocation();
 
@@ -47,6 +48,42 @@ function App() {
         </Link>
     ];
 
+    
+    const closeNav = () => {
+      setNavbarOpen(false);
+    }
+
+    const headerNavLinks = [
+        <nav id='header_nav' aria-hidden={navbarOpen ? 'false' : 'true'} className={navbarOpen ? 'expanded' : 'collapsed'}>
+            <ul>
+                <li onClick={() => closeNav()}>
+                    <a class='header-link link-no-decoration' href="https://madeuptocode.org/about/">
+                        <span className={'header-link-text'}>About</span>
+                    </a>
+                </li>
+                <li onClick={() => closeNav()}>
+                    <a class='header-link link-no-decoration' href="https://madeuptocode.org/faqs/">
+                        <span className={'header-link-text'}>FAQs</span>
+                    </a>
+                </li>
+                <li onClick={() => closeNav()}>
+                    <a class='header-link link-no-decoration' href="https://madeuptocode.org/find-your-inspector/">
+                        <span className={'header-link-text'}>Find Your Inspector</span>
+                    </a>
+                </li>
+                <li onClick={() => closeNav()} className={'header-item-current'}>
+                    <a className='header-link link-no-decoration' href={languageCode === "en" ? "/" : "/" + languageCode + "/"} >
+                        <span className={'header-link-text'} >Read the Code</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    ];
+
+    const toggleNav = () => {
+      setNavbarOpen(prev => !prev);
+    }
+
     return (
         <WindowWidthContext.Provider value={[windowWidth, setWindowWidth]}>
         <LanguageCodeContext.Provider value={[languageCode, setLanguageCode]} >
@@ -60,31 +97,24 @@ function App() {
             </div>
             <div className="App">
                 <section id='header_section'>
-                    <div id='header' style={{display: "flex", flexDirection:(windowWidth < 800)? "column" : "row"}}>
-                        <div className='header-part logo'>
+                    <div id='header'>
+                        <div className='header-part logo-container'>
                             <UpToCodeLogo/>
                         </div>
-                        <div className='header-part header-links'>
-                            <nav className='nav' style={{display: "flex", flexDirection:(windowWidth < 300)? "column" : "row", flex: 1, justifyContent: "space-between"}}>
-                                <div style={{display: "flex", flexDirection:(windowWidth < 300)? "column" : "row"}}>
-                                    <a class='header-link link-no-decoration' href="https://madeuptocode.org/about/">
-                                        <h3 className={'header-link-text'}>About</h3>
-                                    </a>
-                                    <a class='header-link link-no-decoration' href="https://madeuptocode.org/faqs/">
-                                        <h3 className={'header-link-text'}>FAQs</h3>
-                                    </a>
-                                    <a class='header-link link-no-decoration' href="https://madeuptocode.org/find-your-inspector/">
-                                        <h3 className={'header-link-text'}>Find Your Inspector</h3>
-                                    </a>
-                                    <a class='header-link link-no-decoration' href={languageCode === "en" ? "/" : "/" + languageCode + "/"} >
-                                        <h3 className={'header-link-text header-link-text-current'} >Read the Code</h3>
-                                    </a>
-                                </div>
-                            </nav>
+
+                        <div id='header_nav_container_wide' className='header-part' aria-hidden={(windowWidth < 1024) ? "true" : "false"}>
+                            { headerNavLinks }
                         </div>
+                        <div id='header_nav_container_1024' className='header-part' aria-hidden={(windowWidth < 1024) ? "false" : "true"}>
+                            <div className='toggle'>
+                                <button onClick={toggleNav} className='hamburger'>{navbarOpen ? "^" : "v"}</button>
+                            </div>
+                            { headerNavLinks }
+                        </div>
+
                     </div>
                 </section>
-                <section><div className={'separator'}/></section>
+                <div className={'separator'}/>
                 <section>
                     <Routes>
                         {Object.keys(translations).map((langCode) => {

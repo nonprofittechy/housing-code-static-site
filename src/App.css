@@ -18,7 +18,7 @@
 
   /* narrow */
   --hamburger: var(--blue);
-  --header-1024-item-border: var(--darkest);
+  --header-1024-item-border: var(--lightest);
   --header-1024-item-background: var(--blue);
   --header-1024-text: var(--light-blue-1);
   --header-1024-text-hover: var(--lightest);
@@ -204,7 +204,7 @@ h1, h2, h3 {
 #header_nav_container_1024 #header_nav {
   max-height: 0;
   overflow: hidden;
-  transition: 0.1s linear;
+  transition: max-height .3s ease;
 }
 
 /* WARNING: If the menu gets too much longer, this height must be increased */

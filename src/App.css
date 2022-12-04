@@ -2,23 +2,26 @@
   /* == Color codes == */
   --darkest: black;
   --lightest: white;
-  --lightest-blue: #F5F9FE;
-  --light-blue-1: #6C9FE1;
+  /*--lightest-blue: #F5F9FE;*/
+  --lightest-blue: #e9f0f7;
+  --light-blue-1: #c3d8f5;
+  --light-blue-2: #6C9FE1;
   --blue: #1A73E8;
   --blue-dark-1: #005dd6;
   
   /* == Purposes == */
+  --header-link-color: var(--darkest);
+
+  /* wide */
+  --header-wide-text-hover: var(--light-blue-2);
+  --header-wide-text-current: var(--blue);
+
+  /* narrow */
+  --hamburger: var(--blue);
   --header-1024-item-border: var(--darkest);
   --header-1024-item-background: var(--blue);
-  /*--header-1024-item-current-background: var(--blue);*/
-  --header-1024-item-current-background: var(--blue-dark-1);
-
-  --header-link: var(--darkest);
-
-  --header-wide-text-hover: var(--light-blue-1);
-  --header-wide-text-current: var(--blue);
-  --header-1024-item-hover: var(--light-blue-1);
-  --header-1024-text: var(--darkest);
+  --header-1024-text: var(--light-blue-1);
+  --header-1024-text-hover: var(--lightest);
   --header-1024-text-current: var(--darkest);
 }
 
@@ -260,7 +263,7 @@ h1, h2, h3 {
   font-family: 'Quicksand', sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--header-link);
+  color: var(--header-link-color);
 }
 
 #header_nav .header-link,
@@ -278,7 +281,12 @@ h1, h2, h3 {
 .hamburger {
   width: 40px;
   height: 40px;
-  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--hamburger);
+  border: 1px solid var(--hamburger);
+  border-radius: 3px;
 }
 
 /* - wide - */
@@ -308,8 +316,12 @@ h1, h2, h3 {
   background-color: var(--header-1024-item-background);
 }
 
-#header_nav_container_1024 #header_nav li:hover {
-  background-color: var(--header-1024-item-hover);
+#header_nav_container_1024 #header_nav li span {
+  color: var(--header-1024-text);
+}
+
+#header_nav_container_1024 #header_nav li:hover span {
+  color: var(--header-1024-text-hover);
 }
 
 #header_nav_container_1024 #header_nav li {
@@ -321,13 +333,8 @@ h1, h2, h3 {
 }
 
 /* Styles for current header item are different that items and don't change with hover */
-#header_nav_container_1024 #header_nav .header-item-current,
-#header_nav_container_1024 #header_nav .header-item-current:hover {
-  /*$*/
-  background-color: var(--header-1024-item-current-background);
-}
 #header_nav_container_1024 #header_nav .header-item-current span,
-#header_nav_container_1024 #header_nav .header-item-current span:hover {
+#header_nav_container_1024 #header_nav .header-item-current:hover span {
   color: var(--header-1024-text-current);
 }
 

@@ -53,31 +53,24 @@ function App() {
       setNavbarOpen(false);
     }
 
+    // For expansion animation to work, actual `nav` that
+    // does the collapsing and expanding must not be in a function.
+    // Looks like it might be something to do with the lifecycle.
+    const HeaderNavItem = props => {
+        return <li onClick={() => closeNav()} className={ props.className || '' }>
+            <a className={'header-link link-no-decoration'} href={ props.to }>
+                <span className={'header-link-text'}>{ props.contents }</span>
+            </a>
+        </li>
+    }
+
     const headerNavLinks = [
-        <nav id='header_nav' aria-hidden={navbarOpen ? 'false' : 'true'} className={navbarOpen ? 'expanded' : 'collapsed'}>
-            <ul>
-                <li onClick={() => closeNav()}>
-                    <a class='header-link link-no-decoration' href="https://madeuptocode.org/about/">
-                        <span className={'header-link-text'}>About</span>
-                    </a>
-                </li>
-                <li onClick={() => closeNav()}>
-                    <a class='header-link link-no-decoration' href="https://madeuptocode.org/faqs/">
-                        <span className={'header-link-text'}>FAQs</span>
-                    </a>
-                </li>
-                <li onClick={() => closeNav()}>
-                    <a class='header-link link-no-decoration' href="https://madeuptocode.org/find-your-inspector/">
-                        <span className={'header-link-text'}>Find Your Inspector</span>
-                    </a>
-                </li>
-                <li onClick={() => closeNav()} className={'header-item-current'}>
-                    <a className='header-link link-no-decoration' href={languageCode === "en" ? "/" : "/" + languageCode + "/"} >
-                        <span className={'header-link-text'} >Read the Code</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <ul>
+            <HeaderNavItem to='https://madeuptocode.org/about/' contents='About'/>
+            <HeaderNavItem to='https://madeuptocode.org/faqs/' contents='FAQs'/>
+            <HeaderNavItem to='https://madeuptocode.org/find-your-inspector/' contents='Find Your Inspector'/>
+            <HeaderNavItem className='header-item-current' to={languageCode === "en" ? "/" : "/" + languageCode + "/"} contents='Read the Code'/>
+        </ul>
     ];
 
     const toggleNav = () => {
@@ -103,13 +96,16 @@ function App() {
                         </div>
 
                         <div id='header_nav_container_wide' className='header-part' aria-hidden={(windowWidth < 1024) ? "true" : "false"}>
-                            { headerNavLinks }
+                            <nav id='header_nav'>{ headerNavLinks }</nav>
                         </div>
+
                         <div id='header_nav_container_1024' className='header-part' aria-hidden={(windowWidth < 1024) ? "false" : "true"}>
                             <div className='toggle'>
-                                <button onClick={toggleNav} className='hamburger'>{navbarOpen ? "^" : "v"}</button>
+                                <div onClick={toggleNav} className='hamburger'>{navbarOpen ? "^" : "v"}</div>
                             </div>
-                            { headerNavLinks }
+                            <nav id='header_nav' aria-hidden={navbarOpen ? 'false' : 'true'} className={navbarOpen ? 'expanded' : 'collapsed'}>
+                                { headerNavLinks }
+                            </nav>
                         </div>
 
                     </div>

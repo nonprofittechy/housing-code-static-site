@@ -17,6 +17,7 @@ function App() {
     const [checklist, setChecklist] = useState(housingChecklistJSON.data);
     const [languageCode, setLanguageCode] = useState("en");
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [navbarOpen, setNavbarOpen] = useState(false);
 
     let location = useLocation();
 
@@ -39,10 +40,42 @@ function App() {
         setWindowWidth(window.innerWidth);
     });
 
-    const headerContents = [<UpToCodeLogo/>,
+    // Is this still used?
+    const headerContents = [
+        <UpToCodeLogo/>,
         <Link className='link-no-decoration' to={languageCode === "en" ? "/" : "/" + languageCode + "/"}>
             <h1>{translations[languageCode]["Massachusetts State Sanitary Code"]}</h1>
-        </Link>];
+        </Link>
+    ];
+
+    
+    const closeNav = () => {
+      setNavbarOpen(false);
+    }
+
+    // For expansion animation to work, actual `nav` that
+    // does the collapsing and expanding must not be in a function.
+    // Looks like it might be something to do with the lifecycle.
+    const HeaderNavItem = props => {
+        return <li onClick={() => closeNav()} className={ props.className || '' }>
+            <a className={'header-link link-no-decoration'} href={ props.to }>
+                <span className={'header-link-text'}>{ props.contents }</span>
+            </a>
+        </li>
+    }
+
+    const headerNavLinks = [
+        <ul>
+            <HeaderNavItem to='https://madeuptocode.org/about/' contents='About'/>
+            <HeaderNavItem to='https://madeuptocode.org/faqs/' contents='FAQs'/>
+            <HeaderNavItem to='https://madeuptocode.org/find-your-inspector/' contents='Find Your Inspector'/>
+            <HeaderNavItem className='header-item-current' to={languageCode === "en" ? "/" : "/" + languageCode + "/"} contents='Read the Code'/>
+        </ul>
+    ];
+
+    const toggleNav = () => {
+      setNavbarOpen(prev => !prev);
+    }
 
     return (
         <WindowWidthContext.Provider value={[windowWidth, setWindowWidth]}>
@@ -56,43 +89,44 @@ function App() {
                 </div>
             </div>
             <div className="App">
-                <div id={'header'}>
-                    <div style={{display: "flex", flexDirection:(windowWidth < 800)? "column" : "row"}}>
-                        <UpToCodeLogo/>
-                        <div style={{display: "flex", flexDirection:(windowWidth < 300)? "column" : "row", flex: 1, justifyContent: "space-between"}}>
-                            <div style={{display: "flex", flexDirection:(windowWidth < 300)? "column" : "row"}}>
-                                <a class='link-no-decoration' href="https://madeuptocode.org/about/">
-                                    <h3 className={'header-link'}>About</h3>
-                                </a>
-                                <a class='link-no-decoration' href="https://madeuptocode.org/faqs/">
-                                    <h3 className={'header-link'}>FAQs</h3>
-                                </a>
-                                <a class='link-no-decoration' href="https://madeuptocode.org/find-your-inspector/">
-                                    <h3 className={'header-link'}>Find Your Inspector</h3>
-                                </a>
-                                <a class='link-no-decoration' href={languageCode === "en" ? "/" : "/" + languageCode + "/"} >
-                                    <h3 className={'header-link header-link-current'} >Read the Code</h3>
-                                </a>
-                            </div>
-
+                <section id='header_section'>
+                    <div id='header'>
+                        <div className='header-part logo-container'>
+                            <UpToCodeLogo/>
                         </div>
+
+                        <div id='header_nav_container_wide' className='header-part' aria-hidden={(windowWidth < 1024) ? "true" : "false"}>
+                            <nav id='header_nav'>{ headerNavLinks }</nav>
+                        </div>
+
+                        <div id='header_nav_container_1024' className='header-part' aria-hidden={(windowWidth < 1024) ? "false" : "true"}>
+                            <div className='toggle'>
+                                <div onClick={toggleNav} className='hamburger'>{navbarOpen ? "^" : "v"}</div>
+                            </div>
+                            <nav id='header_nav' aria-hidden={navbarOpen ? 'false' : 'true'} className={navbarOpen ? 'expanded' : 'collapsed'}>
+                                { headerNavLinks }
+                            </nav>
+                        </div>
+
                     </div>
-                    <div className={'separator'}/>
-                </div>
-                <Routes>
-                    {Object.keys(translations).map((langCode) => {
-                        let pathLangCode = langCode + "/";
-                        if (langCode === "en") {
-                            pathLangCode = "";
-                        }
-                        console.log(pathLangCode)
-                        return (<Fragment key={"/" + pathLangCode}>
-                                <Route path={"/" + pathLangCode} element={<Home />} />
-                                <Route path={"/" + pathLangCode + "category/:categoryName"} element={<CategoryPage/>}/>
-                            </Fragment>
-                        );
-                    })}
-                </Routes>
+                </section>
+                <div className={'separator'}/>
+                <section>
+                    <Routes>
+                        {Object.keys(translations).map((langCode) => {
+                            let pathLangCode = langCode + "/";
+                            if (langCode === "en") {
+                                pathLangCode = "";
+                            }
+                            console.log(pathLangCode)
+                            return (<Fragment key={"/" + pathLangCode}>
+                                    <Route path={"/" + pathLangCode} element={<Home/>} />
+                                    <Route path={"/" + pathLangCode + "category/:categoryName"} element={<CategoryPage/>}/>
+                                </Fragment>
+                            );
+                        })}
+                    </Routes>
+                </section>
                 <div id={'footer'}>
                     <br/>
                     <div className={'separator'}/>

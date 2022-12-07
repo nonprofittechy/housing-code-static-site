@@ -1,5 +1,28 @@
 :root {
+  /* == Color codes == */
+  --darkest: black;
+  --lightest: white;
+  /*--lightest-blue: #F5F9FE;*/
+  --lightest-blue: #e9f0f7;
+  --light-blue-1: #c3d8f5;
+  --light-blue-2: #6C9FE1;
   --blue: #1A73E8;
+  --blue-dark-1: #005dd6;
+  
+  /* == Purposes == */
+  --header-link-color: var(--darkest);
+
+  /* wide */
+  --header-wide-text-hover: var(--light-blue-2);
+  --header-wide-text-current: var(--blue);
+
+  /* narrow */
+  --hamburger: var(--blue);
+  --header-1024-item-border: var(--lightest);
+  --header-1024-item-background: var(--blue);
+  --header-1024-text: var(--light-blue-1);
+  --header-1024-text-hover: var(--lightest);
+  --header-1024-text-current: var(--darkest);
   --lightblue: #F5F9FE;
   --navtext: white;
 }
@@ -8,6 +31,27 @@
   margin-top: 0;
   padding: 0;
   font-size: 1.15rem;
+}
+
+div {
+  color: #6C757D;
+}
+
+section {
+  padding: 10px 30px 0 30px;
+}
+
+@media (max-width: 380px) {
+  section {
+    padding: 8px 15px 0 15px;
+  }
+}
+
+h1, h2, h3 {
+  color: black;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
 .topnav {
@@ -26,6 +70,19 @@
   font-size: 0.8em;
 }
 
+/* If the separator needs a background color, it will need a container */
+.separator {
+  /*margin: 0 auto;*/
+  margin: 10px 30px 0 30px;
+  border-bottom: 1px solid black;
+}
+
+@media (max-width: 380px) {
+  .separator {
+    margin: 8px 15px 0 15px;
+  }
+}
+
 #language-container {
   padding: .7rem 1rem;
   display: flex;
@@ -33,6 +90,7 @@
   line-height: 1.5em;
 }
 
+/* links? */
 .language-link {
   padding: .5rem;
   font-weight: 600;
@@ -45,36 +103,6 @@
   }
 }
 
-.App {
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  padding-right: 15%;
-  padding-left: 15%;
-  margin: 0 auto;
-}
-
-.separator {
-  border: 1px solid black;
-  margin: 0 auto;
-}
-
-div {
-  color: #6C757D;
-}
-
-h1, h2, h3 {
-  color: black;
-  font-family: 'Quicksand', sans-serif;
-}
-
-.header-link {
-  padding: 0px 5px 0px 5px;
-}
-
-.header-link-current {
-  color: var(--blue);
-}
-
 .normal .link {
   font-family: "Roboto", sans-serif;
   font-size: 20px;
@@ -85,7 +113,10 @@ h1, h2, h3 {
   color: var(--blue);
 }
 
-.link-no-decoration, .link-no-decoration:active, .link-no-decoration:link, .link-no-decoration:visited {
+.link-no-decoration,
+.link-no-decoration:active,
+.link-no-decoration:link,
+.link-no-decoration:visited {
   text-decoration: none;
 }
 
@@ -93,16 +124,248 @@ h1, h2, h3 {
   text-decoration: underline;
 }
 
-.call-to-action-link, .call-to-action-link:hover, .call-to-action-link:active, .call-to-action-link:link, .call-to-action-link:visited {
+.call-to-action-link,
+.call-to-action-link:hover,
+.call-to-action-link:active,
+.call-to-action-link:link,
+.call-to-action-link:visited {
   color: white;
 }
+
+/* ====== App ====== */
+.App {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  margin: 0 auto;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header_section {
+  position: relative;
+}
+
+.header-part {
+  padding: 10px;
+}
+
+.header-part:first-child {
+  padding-left: 0;
+}
+
+.header-part:last-child {
+  padding-right: 0;
+}
+
+/* == Header logo == */
+
+#header .logo-container {
+  width: 220px;
+  text-align: left;
+}
+
+@media (max-width: 380px) {
+  #header .logo-container {
+    width: 55%;
+  }
+}
+
+#header .logo-container img {
+  width: 100%;
+}
+
+/* == Header nav links containers == */
+
+#header_nav {
+  display: flex;
+  flex: 1;
+}
+
+/* Show/hide hamburger stuff */
+#header_nav_container_1024 {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  #header_nav_container_wide {
+    display: none;
+  }
+  #header_nav_container_1024 {
+    display: block;
+  }
+}
+
+/* == Actual nav list containers == */
+
+/* - wide - */
+#header_nav_container_wide #header_nav {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* - narrow - */
+#header_nav_container_1024 #header_nav {
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 100%;
+}
+
+/* Expand and collapse hamburger's menu*/
+#header_nav_container_1024 #header_nav {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease;
+}
+
+/* WARNING: If the menu gets too much longer, this height must be increased */
+#header_nav_container_1024 #header_nav.expanded {
+  max-height: 300px;
+}
+
+/* == Header nav link lists == */
+
+#header_nav ul {
+  display: flex;
+  /* Neutralize default ul styles */
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+}
+
+#header_nav_container_wide #header_nav ul {
+  flex-direction: row;
+}
+
+#header_nav ul li {
+  /* Neutralize default li styles */
+  display: inline;
+  list-style-type: none;
+}
+
+/* - wide - */
+
+#header_nav_container_wide #header_nav li {
+  padding: 0 20px;
+}
+
+#header_nav_container_wide #header_nav li:first-child {
+  padding-left: 0;
+}
+
+#header_nav_container_wide #header_nav li:last-child {
+  padding-right: 0;
+}
+
+/* - narrow - */
+
+#header_nav_container_1024 #header_nav ul {
+  flex-direction: column;
+}
+
+/* == Header nav links == */
+
+#header_nav .header-link {
+  /* Override link styles */
+  display: block;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--header-link-color);
+}
+
+#header_nav .header-link,
+#header_nav .header-link:active,
+#header_nav .header-link:link,
+#header_nav .header-link:visited,
+#header_nav .header-link:hover {
+  text-decoration: none;
+}
+
+#header_nav .header-link span {
+  margin: 0;
+}
+
+.hamburger {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--hamburger);
+  border: 1px solid var(--hamburger);
+  border-radius: 3px;
+}
+
+/* - wide - */
+
+#header_nav_container_wide #header_nav .header-link-text:hover {
+  color: var(--header-wide-text-hover);
+}
+
+/* Styles for current header item are different that items and don't change with hover */
+#header_nav_container_wide #header_nav .header-item-current span,
+#header_nav_container_wide #header_nav .header-item-current span:hover {
+  color: var(--blue);
+}
+
+#header_nav_container_wide .header-link-text {
+  margin: 0;
+  padding: 0px 5px 0px 5px;
+}
+
+/* - narrow - */
+
+#header_nav_container_1024 #header_nav .header-link {
+  padding: 1em;
+}
+
+#header_nav_container_1024 #header_nav li {
+  background-color: var(--header-1024-item-background);
+}
+
+#header_nav_container_1024 #header_nav li span {
+  color: var(--header-1024-text);
+}
+
+#header_nav_container_1024 #header_nav li:hover span {
+  color: var(--header-1024-text-hover);
+}
+
+#header_nav_container_1024 #header_nav li {
+  border-bottom: 1px solid var(--header-1024-item-border);
+}
+
+#header_nav_container_1024 #header_nav li:first-child {
+  border-top: 1px solid var(--header-1024-item-border);
+}
+
+/* Styles for current header item are different that items and don't change with hover */
+#header_nav_container_1024 #header_nav .header-item-current span,
+#header_nav_container_1024 #header_nav .header-item-current:hover span {
+  color: var(--header-1024-text-current);
+}
+
+#footer .logo {
+
+}
+
+/* ======== */
 
 .row {
   display: flex;
   flex: 1;
   margin: 0 auto;
   max-width: 700px;
-
 }
 
 .column {
@@ -163,7 +426,7 @@ h1, h2, h3 {
 
 
 .section {
-  background-color: var(--lightblue);
+  background-color: var(--lightest-blue);
   padding: 20px 0;
   width: 100vw;
   margin: 20px 0 20px calc(50% - 50vw);
@@ -172,7 +435,7 @@ h1, h2, h3 {
 
 
 .info-box {
-  background-color: var(--lightblue);
+  background-color: var(--lightest-blue);
   width: 50%;
   margin: 10px auto;
   padding: 10px 15px;

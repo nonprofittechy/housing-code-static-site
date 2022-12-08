@@ -110,7 +110,7 @@ function App() {
 
                     </div>
                 </section>
-                <div className={'separator'}/>
+                <div className={'divider-container'}><div class={'divider'}></div></div>
                 <section>
                     <Routes>
                         {Object.keys(translations).map((langCode) => {
@@ -127,11 +127,16 @@ function App() {
                         })}
                     </Routes>
                 </section>
-                <div id={'footer'}>
-                    <br/>
-                    <div className={'separator'}/>
-                    <UpToCodeLogo/>
-                </div>
+                <section id={'footer'}>
+                    <div id={'footer_container'}>
+                        <UpToCodeLogo/>
+                        <p id="footer_resources">If you are being evicted, use the <a href="https://www.gbls.org/MADE" className="link">free MADE website</a> to fight your eviction.</p>
+                    </div>
+                </section>
+                <div id={'footer_divider'} className={'divider-container'}><div class={'divider'}></div></div>
+                <section id="copyright">
+                    <p>© { new Date().getFullYear() } All Rights Reserved.</p>
+                </section>
             </div>
         </ChecklistContext.Provider>
         </LanguageCodeContext.Provider>

@@ -66,9 +66,9 @@ function App() {
 
     const headerNavLinks = [
         <ul>
-            <HeaderNavItem to='https://madeuptocode.org/about/' contents='About'/>
-            <HeaderNavItem to='https://madeuptocode.org/faqs/' contents='FAQs'/>
-            <HeaderNavItem to='https://madeuptocode.org/find-your-inspector/' contents='Find Your Inspector'/>
+            <HeaderNavItem to='https://getuptocode.org/about/' contents='About'/>
+            <HeaderNavItem to='https://getuptocode.org/faqs/' contents='FAQs'/>
+            <HeaderNavItem to='https://getuptocode.org/find-your-inspector/' contents='Find Your Inspector'/>
             <HeaderNavItem className='header-item-current' to={languageCode === "en" ? "/" : "/" + languageCode + "/"} contents='Read the Code'/>
         </ul>
     ];

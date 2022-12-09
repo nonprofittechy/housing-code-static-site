@@ -33,6 +33,8 @@
   --header-1024-text: var(--light-blue-1);
   --header-1024-text-hover: var(--lightest);
   --header-1024-text-current: var(--darkest);
+  --copyright-text: var(--darkest);
+
   --lightblue: #F5F9FE;
   --navtext: white;
 }
@@ -431,8 +433,9 @@ section#footer {
   font-family: "Montserrat", Sans-serif;
   font-size: 15px;
   font-weight: 300;
+  /* Closest I can get to visual appearance at narrow widths */
   line-height: 2em;
-  color: var(--darkest);
+  color: var(--copyright-text);
   /* Avoid margin collapse */
   display: flex;
 }

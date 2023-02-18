@@ -10,7 +10,7 @@
   --blue: #1A73E8;
   --blue-dark-1: #005dd6;
   --green: #5c9234;
-  
+
   /* == Purposes == */
   --gutters-wide: 30px;
   --gutters-380: 15px;
@@ -169,7 +169,7 @@ h1, h2, h3 {
   display: flex;
   justify-content: flex-end;
   background-color: var(--blue);
-  font-family: "Roboto", Sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: 0.8em;
 }
@@ -423,7 +423,7 @@ section#footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "Roboto", Sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.15rem;
   line-height: 1.5em;
 }
@@ -447,7 +447,7 @@ section#footer {
   margin-bottom: 50px;
   padding-left: var(--gutters-footer);
   padding-right: var(--gutters-footer);
-  font-family: "Montserrat", Sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 15px;
   font-weight: 300;
   /* Closest I can get to visual appearance at narrow widths */
@@ -531,7 +531,7 @@ section#footer {
 .action-box h2 {
   font-size: 1.5em;
   line-height: 1.2em;
-  font-family: "Quicksand", Sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 700;
   color: var(--dark-1);
   text-align: left;
@@ -546,7 +546,7 @@ section#footer {
 
 .action-box a {
   margin: 0;
-  font-family: "Roboto", Sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 700;
   color: var(--action-button-text);
@@ -584,7 +584,7 @@ section#footer {
   flex: 1;
   justify-content: space-between;
   text-align: left;
-
+  font-family: "Quicksand", sans-serif;
 }
 
 .category-button:hover {
@@ -595,6 +595,15 @@ section#footer {
 
 .category-button::after {
   content: ">";
+}
+
+.category-button i {
+  font-size: 24px;
+  background-color: #1A73E8;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
 }
 
 .button {

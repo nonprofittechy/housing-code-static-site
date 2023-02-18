@@ -16,6 +16,7 @@ const CategoryPage = () => {
 
 
 	useEffect(() => {
+		window.scrollTo(0, 0); // otherwise links at homepage bottom will lead to scroll position at bottom
 		if(checklist) {
 			let data = [...checklist];
 			data.shift(); // remove row with names of columns

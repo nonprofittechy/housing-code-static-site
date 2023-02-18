@@ -1,9 +1,9 @@
 :root {
   /* == Color codes == */
   --darkest: black;
-  --dark-1: #545252;
+  --dark-1: #333333;
+  --dark-2: #545252;
   --lightest: white;
-  /*--lightest-blue: #F5F9FE;*/
   --lightest-blue: #e9f0f7;
   --light-blue-1: #c3d8f5;
   --light-blue-2: #6C9FE1;
@@ -16,7 +16,7 @@
   --gutters-380: 15px;
   --gutters-footer: 5%;
 
-  --content-text: var(--dark-1);
+  --content-text: var(--dark-2);
   --content-link-text: var(--green);
   --content-link-text-hover: var(--light-blue-2);
 
@@ -34,9 +34,11 @@
   --header-1024-text-hover: var(--lightest);
   --header-1024-text-current: var(--darkest);
   --copyright-text: var(--darkest);
+  --lang-link-text: var(--lightest);
 
-  --lightblue: #F5F9FE;
-  --navtext: white;
+  /* Content */
+  --action-box-background: var(--lightest-blue);
+  --action-button-text: var(--lightest);
 }
 
 #root {
@@ -92,20 +94,16 @@ h1, h2, h3 {
   margin-bottom: 0.9rem;
 }
 
-.topnav {
-  top: 0;
-  width: 100%;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  margin: 0;
-  padding: 0 2rem;
+.row {
   display: flex;
-  justify-content: flex-end;
-  background-color: var(--blue);
-  font-family: "Roboto", Sans-serif;
-  font-weight: 600;
-  font-size: 0.8em;
+  flex: 1;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.column {
+  flex: 50%;
+  margin-right: 20px;
 }
 
 .divider {
@@ -119,26 +117,6 @@ h1, h2, h3 {
 @media (max-width: 380px) {
   .divider-container {
     padding: 8px var(--gutters-380) 0 var(--gutters-380);
-  }
-}
-
-#language-container {
-  padding: .7rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  line-height: 1.5em;
-}
-
-/* links? */
-.language-link {
-  padding: .5rem;
-  font-weight: 600;
-  color: var(--navtext);
-}
-
-@media (max-width: 767px) {
-  .topnav {
-    justify-content: center;
   }
 }
 
@@ -177,6 +155,45 @@ h1, h2, h3 {
   font-family: "Roboto", sans-serif;
   margin: 0 auto;
 }
+
+/* === Language menu === */
+
+.topnav {
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--blue);
+  font-family: "Roboto", Sans-serif;
+  font-weight: 600;
+  font-size: 0.8em;
+}
+
+#language-container {
+  padding: .7rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.5em;
+}
+
+.language-link {
+  padding: .5rem;
+  font-weight: 600;
+  color: var(--lang-link-text);
+}
+
+@media (max-width: 767px) {
+  .topnav {
+    justify-content: center;
+  }
+}
+
+/* === Header with menu === */
 
 #header {
   display: flex;
@@ -444,7 +461,7 @@ section#footer {
   text-align: left;
 }
 
-/* Footer narrow widths */
+/* Bottom area narrow widths */
 
 /* Below 768 */
 @media (max-width: 768px) {
@@ -493,20 +510,67 @@ section#footer {
   }
 }
 
-/* ======== */
 
-.row {
+/* === Action boxes === */
+
+.action-box {
+  background-color: var(--action-box-background);
+  width: 100vw;
+  margin: 6% 0 20px calc(50% - 50vw);
+  font-size: 1.15rem;
+  padding: 6% 0;
+}
+
+.action-body {
   display: flex;
-  flex: 1;
-  margin: 0 auto;
-  max-width: 700px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 20px;
 }
 
-.column {
-  flex: 50%;
-  margin-right: 20px;
+.action-box h2 {
+  font-size: 1.5em;
+  line-height: 1.2em;
+  font-family: "Quicksand", Sans-serif;
+  font-weight: 700;
+  color: var(--dark-1);
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
+.action-box button {
+  margin: 0;
+  padding: 12px 24px;
+}
+
+.action-box a {
+  margin: 0;
+  font-family: "Roboto", Sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--action-button-text);
+  line-height: 1;
+  transition: all .3s;
+  padding: 12px 24px;
+}
+
+@media (max-width: 767px) {
+  .action-box {
+    padding: 0;
+  }
+
+  .action-body {
+    padding: 20px;
+  }
+
+  .action-box h2 {
+    font-size: 1.35em;
+  }
+}
+
+
+/* === Categories === */
 .category-button {
   font-size: 17px;
   height: 50%;
@@ -557,12 +621,8 @@ section#footer {
   display: inline;
 }
 
-.section {
-  background-color: var(--lightest-blue);
-  padding: 20px 0;
-  width: 100vw;
-  margin: 20px 0 20px calc(50% - 50vw);
-}
+
+/* === Info box === */
 
 .info-box {
   background-color: var(--lightest-blue);
@@ -571,8 +631,4 @@ section#footer {
   padding: 10px 15px;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-#footer img {
-  max-height: 40px;
 }

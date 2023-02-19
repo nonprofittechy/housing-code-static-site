@@ -7,6 +7,7 @@ import housingChecklistJSON from "./housing_code_checklist.json"
 import translations from "./translations.json";
 
 import UpToCodeLogo from "./components/UpToCodeLogo";
+import iconAssignments from "./iconAssignments.json";
 
 export const ChecklistContext = createContext([[], () => {}]);
 export const LanguageCodeContext = createContext("en");
@@ -26,7 +27,6 @@ function App() {
      */
     useEffect(() => {
         const newLangCode = location.pathname.substring(1, 3);
-        console.log("newLangCode; ", newLangCode)
         if(translations[newLangCode]) {
             setLanguageCode(newLangCode);
         }
@@ -48,7 +48,7 @@ function App() {
         </Link>
     ];
 
-    
+
     const closeNav = () => {
       setNavbarOpen(false);
     }
@@ -85,7 +85,7 @@ function App() {
                 <div id='language-container'>
                     <Link className='link-no-decoration' to={languageCode === "en" ? "/es/" : "/"} >
                         <span class="language-link">{languageCode === "en" ? "Español" : "English"}</span>
-                    </Link>                    
+                    </Link>
                 </div>
             </div>
             <div className="App">
@@ -101,7 +101,7 @@ function App() {
 
                         <div id='header_nav_container_1024' className='header-part' aria-hidden={(windowWidth < 1024) ? "false" : "true"}>
                             <div className='toggle'>
-                                <div onClick={toggleNav} className='hamburger'>{navbarOpen ? "^" : "v"}</div>
+                                <div onClick={toggleNav} className='hamburger'>{navbarOpen ? <i className={"fa-solid fa-xmark"} aria-hidden="true"></i> : <i className={"fa-solid fa-bars"} aria-hidden="true"></i>}</div>
                             </div>
                             <nav id='header_nav' aria-hidden={navbarOpen ? 'false' : 'true'} className={navbarOpen ? 'expanded' : 'collapsed'}>
                                 { headerNavLinks }

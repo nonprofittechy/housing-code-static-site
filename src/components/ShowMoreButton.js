@@ -6,7 +6,7 @@ import translations from "../translations.json"
 const ShowMoreButton = () => {
 	const [languageCode, setLanguageCode] = useContext(LanguageCodeContext);
 
-	return <div style={{textAlign: 'left'}}>
+	return <div style={{textAlign: 'left', marginBottom: 10}}>
 		<Link to={languageCode === "en" ? "/" : "/" + languageCode + "/"}>
 			<div className={'button'}>
 				{translations[languageCode]["View more of the Massachusetts state sanitary code"]}

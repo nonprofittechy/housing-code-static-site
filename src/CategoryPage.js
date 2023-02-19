@@ -13,7 +13,7 @@ const CategoryPage = () => {
 	const [languageCode, setLanguageCode] = useContext(LanguageCodeContext);
 	const [descriptions, setDescriptions] = useState([]);
 	const [relevantChecklistIndices, setRelevantChecklistIndices] = useState([]);
-
+	const lighter_yellow = "#F8C00780";
 
 	useEffect(() => {
 		window.scrollTo(0, 0); // otherwise links at homepage bottom will lead to scroll position at bottom
@@ -36,9 +36,9 @@ const CategoryPage = () => {
 
 	return <div>
 		<ShowMoreButton/>
-		<div className={"section"}>
+		<div className={"category-info-box"}>
 			<h1>
-				<i className={"fa " + iconAssignments[params.categoryName]} aria-hidden="true">&nbsp;</i>
+				<i className={"icon fa " + iconAssignments[params.categoryName]} aria-hidden="true">&nbsp;</i>
 				{translations[languageCode][params.categoryName]}
 			</h1>
 			<h2>
@@ -51,7 +51,7 @@ const CategoryPage = () => {
 
 		{descriptions.map((description, index) => {
 			const isEven = index % 2 === 0;
-				return <div key={index} className={'section'} style={{backgroundColor: isEven ? '#EEEEEE' : "white"}}>
+				return <div key={index} className={'legal-code-box'} style={{backgroundColor: isEven ? lighter_yellow : "white"}}>
 					<div style={{width: '70%', margin: '0 auto'}}>
 						<h3>{description}</h3>
 						<div style={{textAlign: 'left'}}>
@@ -69,7 +69,7 @@ const CategoryPage = () => {
 				</div>;
 		})}
 		<CallToAction/>
-		<InfoBox/>
+		<InfoBox isYellow={true}/>
 		<ShowMoreButton/>
 		</div>
 };

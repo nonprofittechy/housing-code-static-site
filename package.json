@@ -1,6 +1,5 @@
 {
-  "name": "housing-code",
-  "homepage": "https://nonprofittechy.github.io/housing-code-static-site",
+  "name": "housing-code-static-site",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

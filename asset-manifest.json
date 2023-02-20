@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/housing-code-static-site/static/css/main.6279ce19.css",
-    "main.js": "/housing-code-static-site/static/js/main.bebfc9e8.js",
-    "static/js/787.63488aea.chunk.js": "/housing-code-static-site/static/js/787.63488aea.chunk.js",
+    "main.js": "/housing-code-static-site/static/js/main.72c13007.js",
+    "static/js/787.1c5ccf3a.chunk.js": "/housing-code-static-site/static/js/787.1c5ccf3a.chunk.js",
     "index.html": "/housing-code-static-site/index.html",
     "main.6279ce19.css.map": "/housing-code-static-site/static/css/main.6279ce19.css.map",
-    "main.bebfc9e8.js.map": "/housing-code-static-site/static/js/main.bebfc9e8.js.map",
-    "787.63488aea.chunk.js.map": "/housing-code-static-site/static/js/787.63488aea.chunk.js.map"
+    "main.72c13007.js.map": "/housing-code-static-site/static/js/main.72c13007.js.map",
+    "787.1c5ccf3a.chunk.js.map": "/housing-code-static-site/static/js/787.1c5ccf3a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6279ce19.css",
-    "static/js/main.bebfc9e8.js"
+    "static/js/main.72c13007.js"
   ]
 }

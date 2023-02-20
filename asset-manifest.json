@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/housing-code-static-site/static/css/main.6279ce19.css",
-    "main.js": "/housing-code-static-site/static/js/main.72c13007.js",
-    "static/js/787.1c5ccf3a.chunk.js": "/housing-code-static-site/static/js/787.1c5ccf3a.chunk.js",
-    "index.html": "/housing-code-static-site/index.html",
-    "main.6279ce19.css.map": "/housing-code-static-site/static/css/main.6279ce19.css.map",
-    "main.72c13007.js.map": "/housing-code-static-site/static/js/main.72c13007.js.map",
-    "787.1c5ccf3a.chunk.js.map": "/housing-code-static-site/static/js/787.1c5ccf3a.chunk.js.map"
+    "main.css": "/static/css/main.6279ce19.css",
+    "main.js": "/static/js/main.c63942f4.js",
+    "static/js/787.1c5ccf3a.chunk.js": "/static/js/787.1c5ccf3a.chunk.js",
+    "index.html": "/index.html",
+    "main.6279ce19.css.map": "/static/css/main.6279ce19.css.map",
+    "main.c63942f4.js.map": "/static/js/main.c63942f4.js.map",
+    "787.1c5ccf3a.chunk.js.map": "/static/js/787.1c5ccf3a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6279ce19.css",
-    "static/js/main.72c13007.js"
+    "static/js/main.c63942f4.js"
   ]
 }

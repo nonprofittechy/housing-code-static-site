@@ -9,6 +9,16 @@ This site contains information for tenants about the responsibilities of their l
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+# To deploy to github pages
+
+`npm run deploy`
+
+Depends on:
+
+* `homepage` being set to https://nonprofittechy.github.io/ (without the trailing repository name)
+* add a CNAME file with code.getuptocode.org in the /public directory
+
+
 # to update the housing_code_checklist.csv
 When the CSV gets updated, run the function in [convertCSVToJson.js](/src/convertCSVToJson.js) and then copy over the data to
 * [housing_code_checklist.json](/src/housing_code_checklist.json) and store it as a child of the "data" key.
